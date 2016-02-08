@@ -1,2 +1,6 @@
 netflix-tests/
 *.pyc
+__pycache__
+.coverage
+*.pyc
+*.tmp
