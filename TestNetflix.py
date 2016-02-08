@@ -5,6 +5,7 @@
 # Copyright (C) 2015
 # Glenn P. Downing
 # Xavier Micah Ramirez
+# Kristine Domingo
 # -------------------------------
 
 # https://docs.python.org/3.4/reference/simple_stmts.html#grammar-token-assert_stmt
