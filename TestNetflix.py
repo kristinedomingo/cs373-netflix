@@ -26,7 +26,12 @@ from Netflix import netflix_read, netflix_eval, netflix_print, netflix_solve
 # -----------
 
 class TestNetflix (TestCase) :
+    # ----
+    # read
+    # ----
 
+    def test_read_1(self):
+        s = "1 10\n"
 
 
 # ----
