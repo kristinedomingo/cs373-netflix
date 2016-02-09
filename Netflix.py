@@ -1,3 +1,15 @@
+"""
+Notes:
+    - simplest possible solution: guess single number every time, 3.7
+        - *** RESULTS IN RMSE OF 1.05 ***
+    - fancier: mean + movie offset + user offset
+        - example: Shawshank Redemption: 3.7 + 0.8 (movie offset) - 0.3 (user offset)
+        - *** RESULTS IN RMSE OF 0.97 ***
+    - since the input is always going to be in the format of probe.txt,
+      netflix_read() should always read that input
+        - we'll read cache files in another function, just not netflix_read()
+"""
+
 #!/usr/bin/env python3
 
 # ---------------------------
