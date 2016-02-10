@@ -47,28 +47,19 @@ def netflix_read (stdin) :
 # netflix_eval
 # ------------
 
-def netflix_eval (i, j) :
+def netflix_eval (input_dict) :
     """
-    i the beginning of the range, inclusive
-    j the end       of the range, inclusive
-    return the max cycle length of the range [i, j]
+    TODO
     """
-
-    return max_so_far
 
 # -------------
 # netflix_print
 # -------------
 
-def netflix_print (w, i, j, v) :
+def netflix_print (w, predictions_dict) :
     """
-    print three ints
-    w a writer
-    i the beginning of the range, inclusive
-    j the end       of the range, inclusive
-    v the max cycle length
+    TODO
     """
-    w.write(str(i) + " " + str(j) + " " + str(v) + "\n")
 
 # -------------
 # netflix_solve
@@ -79,12 +70,13 @@ def netflix_solve (r, w) :
     r a reader
     w a writer
     """
-    big_dictionary = netflix_read(r) # reads entire file
 
-    # for k, v in big_dictionary:
+    # Read entire input file
+    # {movie_id: [customer_id, customer_id, customer_id]}
+    input_dict = netflix_read(r)
 
-    # for s in r :
-    #     if s != "":
-    #         i, j = netflix_read(s)
-    #         v    = netflix_eval(i, j)
-    #         netflix_print(w, i, j, v)
+    # {movie_id: [rating, rating, rating]}
+    predictions_dict = netflix_eval(input_dict)
+
+    # Output to RunNetflix.out
+    netflix_print(w, predictions_dict)
