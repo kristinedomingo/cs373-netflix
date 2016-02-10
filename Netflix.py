@@ -23,14 +23,25 @@ Notes:
 # netflix_read
 # ------------
 
-def netflix_read (s) :
+def netflix_read (stdin) :
     """
-    read two ints
-    s a string
-    return a list of two ints, representing the beginning and end of a range, [i, j]
+    stdin the inputstream
+    return a dictionary of movie ids to lists of customer ids
     """
-    a = s.split()
-    return [int(a[0]), int(a[1])]
+    movie_to_customer_db = {}
+
+    for line in stdin:
+        # If line is a movie id, add this key to the dictionary, splicing
+        # off the colon and newline chararcter at the end
+        if line.endswith(":\n"):
+            current_movie = int(line[:len(line) - 2])
+            movie_to_customer_db[current_movie] = []
+
+        # Else, add the customer id to the associated movie
+        else:
+            movie_to_customer_db[current_movie].append(int(line))
+
+    return movie_to_customer_db
 
 # ------------
 # netflix_eval
@@ -68,8 +79,12 @@ def netflix_solve (r, w) :
     r a reader
     w a writer
     """
-    for s in r :
-        if s != "":
-            i, j = netflix_read(s)
-            v    = netflix_eval(i, j)
-            netflix_print(w, i, j, v)
+    big_dictionary = netflix_read(r) # reads entire file
+
+    # for k, v in big_dictionary:
+
+    # for s in r :
+    #     if s != "":
+    #         i, j = netflix_read(s)
+    #         v    = netflix_eval(i, j)
+    #         netflix_print(w, i, j, v)
