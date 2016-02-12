@@ -105,7 +105,7 @@ def netflix_get_rmse(predictions_dict):
         cache = pickle.load(f)
     else:
         # Read cache from HTTP
-        bytes = requests.get('http://www.cs.utexas.edu/users/fares/netflix-tests/mdg7227-real_scores.pickles').content
+        bytes = requests.get('http://www.cs.utexas.edu/users/fares/netflix-tests/mdg7227-real_scores.pickle').content
         cache = pickle.loads(bytes)
 
     sum = 0
