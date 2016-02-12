@@ -61,6 +61,17 @@ def netflix_eval(input_dict):
     TODO
     """
 
+    if os.path.isfile('/u/fares/public_html/netflix-tests/kh549-movie_average.pickle') :
+        # Read cache from file system
+        f = open('/u/fares/public_html/netflix-tests/kh549-movie_average.pickle','rb')
+        movie_avg_cache = pickle.load(f)
+
+    if os.path.isfile('/u/fares/public_html/netflix-tests/kh549-customer_average.pickle') :
+        # Read cache from file system
+        f = open('/u/fares/public_html/netflix-tests/kh549-customer_average.pickle','rb')
+        cust_avg_cache = pickle.load(f)
+
+
     predictions_dict = {}
 
     # For each k, v in input_dict, fill predictions_dict with rating predictions
@@ -68,7 +79,7 @@ def netflix_eval(input_dict):
     for movie_id, customer_id_list in input_dict.items():
         predictions_dict[movie_id] = {}
         for customer_id in customer_id_list:
-            predictions_dict[movie_id][customer_id] = 3.7
+            predictions_dict[movie_id][customer_id] = 3.7 + (movie_avg_cache[movie_id] - 3.7) + (cust_avg_cache[customer_id] - 3.7)
 
     return predictions_dict
 
