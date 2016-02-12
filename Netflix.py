@@ -25,7 +25,7 @@ Notes:
 
 import os
 import pickle
-from requests import get
+import requests
 from math import sqrt
 
 
