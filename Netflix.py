@@ -65,11 +65,20 @@ def netflix_eval(input_dict):
         # Read cache from file system
         f = open('/u/fares/public_html/netflix-tests/kh549-movie_average.pickle','rb')
         movie_avg_cache = pickle.load(f)
+    else:
+        # Read cache from HTTP
+        bytes = requests.get('http://www.cs.utexas.edu/users/fares/netflix-tests/kh549-movie_average.pickle').content
+        movie_avg_cache = pickle.loads(bytes)
 
     if os.path.isfile('/u/fares/public_html/netflix-tests/kh549-customer_average.pickle') :
         # Read cache from file system
         f = open('/u/fares/public_html/netflix-tests/kh549-customer_average.pickle','rb')
         cust_avg_cache = pickle.load(f)
+    else:
+        # Read cache from HTTP
+        bytes = requests.get('http://www.cs.utexas.edu/users/fares/netflix-tests/kh549-customer_average.pickle').content
+        cust_avg_cache = pickle.loads(bytes)
+
 
 
     predictions_dict = {}
