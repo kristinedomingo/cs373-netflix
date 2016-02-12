@@ -102,13 +102,15 @@ def netflix_print(w, predictions_dict):
     TODO
     """
 
-    # Write to standard output each movie id followed by predictions
-    for movie_id, customer_id_list in predictions_dict.items():
+    # Write to standard output each movie id
+    for movie_id in predictions_dict:
         w.write(str(movie_id) + ":\n")
-
-        # Converts every customer_id in the list to a string, and joins each
-        # to a newline character
-        w.write(('\n').join(map(str, customer_id_list)) + '\n')
+        # Steps into a movie's dict of customer_id -> predicted_ratings and
+        # writes the prediction to stdout
+        for customer_id, prediction in predictions_dict[movie_id].items():
+            # Converts every customer_id in the list to a string, and joins each
+            # to a newline character
+            w.write(str(prediction) + '\n')
 
     # Print RMSE
     print("RMSE: " + str(netflix_get_rmse(predictions_dict)))
