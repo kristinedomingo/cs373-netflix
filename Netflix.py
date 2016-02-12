@@ -25,8 +25,9 @@ Notes:
 
 import os
 import pickle
-from numpy import mean, sqrt, square, subtract
+import requests
 from math import sqrt
+
 
 # ------------
 # netflix_read
