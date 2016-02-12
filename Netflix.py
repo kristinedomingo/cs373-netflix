@@ -93,7 +93,6 @@ def netflix_get_rmse(predictions_dict):
             sum += (cache[movie_id][customer_id] - predictions_dict[movie_id][customer_id]) ** 2
 
     return sqrt(sum / num_ratings)
-
 # -------------
 # netflix_print
 # -------------
