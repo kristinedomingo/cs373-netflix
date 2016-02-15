@@ -1,22 +1,11 @@
-"""
-Notes:
-    - simplest possible solution: guess single number every time, 3.7
-        - *** RESULTS IN RMSE OF 1.05 ***
-    - fancier: mean + movie offset + user offset
-        - example: Shawshank Redemption: 3.7 + 0.8 (movie offset) - 0.3 (user offset)
-        - *** RESULTS IN RMSE OF 0.97 ***
-    - since the input is always going to be in the format of probe.txt,
-      netflix_read() should always read that input
-        - we'll read cache files in another function, just not netflix_read()
-"""
-
 #!/usr/bin/env python3
 
 # ---------------------------
-# projects/collatz/Collatz.py
+# projects/netlifx/Netflix.py
 # Copyright (C) 2015
 # Glenn P. Downing
 # Xavier Micah Ramirez
+# Kristine Domingo
 # ---------------------------
 
 # -------
@@ -35,8 +24,9 @@ from math import sqrt
 
 def netflix_read(stdin):
     """
+    Reads movie ids and associated customer ids from standard input, and returns
+    a dictionary of movie ids to lists of customer ids.
     stdin the inputstream
-    return a dictionary of movie ids to lists of customer ids
     """
     movie_to_customer_db = {}
 
@@ -59,7 +49,9 @@ def netflix_read(stdin):
 
 def netflix_eval(input_dict):
     """
-    TODO
+    Obtains caches used to create predictions of customer ratings, and returns
+    a dictionary of those predictions.
+    input_dict a dict of input {movie_id: [customer_ids]}
     """
 
     if os.path.isfile('/u/downing/public_html/netflix-caches/kh549-movie_average.pickle') :
@@ -96,6 +88,12 @@ def netflix_eval(input_dict):
 # ----------------
 
 def netflix_get_rmse(predictions_dict):
+    """
+    Returns the root mean squared error (RMSE) of a dictionary of predictions,
+    versus the actual ratings.
+    predictions_dict a dict of predictions {movie_id: {customer_id: rating}}
+    """
+
     rmse = 0.0
 
     if os.path.isfile('/u/downing/public_html/netflix-caches/mdg7227-real_scores.pickle') :
@@ -124,7 +122,10 @@ def netflix_get_rmse(predictions_dict):
 
 def netflix_print(w, predictions_dict):
     """
-    TODO
+    Writes to writer w the contents of predictions_dict, movie ids followed by
+    predicted customer ratings.
+    w a writer
+    predictions_dict a dict of predictions {movie_id: {customer_id: rating}}
     """
 
     # Write to standard output each movie id
@@ -146,6 +147,8 @@ def netflix_print(w, predictions_dict):
 
 def netflix_solve(r, w):
     """
+    Reads from reader r and initiates computation to generate Netflix
+    rating predictions, and writes results to writer w. 
     r a reader
     w a writer
     """
