@@ -62,25 +62,23 @@ def netflix_eval(input_dict):
     TODO
     """
 
-    if os.path.isfile('/u/fares/public_html/netflix-tests/kh549-movie_average.pickle') :
+    if os.path.isfile('/u/downing/public_html/netflix-caches/kh549-movie_average.pickle') :
         # Read cache from file system
-        f = open('/u/fares/public_html/netflix-tests/kh549-movie_average.pickle','rb')
+        f = open('/u/downing/public_html/netflix-caches/kh549-movie_average.pickle','rb')
         movie_avg_cache = pickle.load(f)
     else:
         # Read cache from HTTP
-        bytes = requests.get('http://www.cs.utexas.edu/users/fares/netflix-tests/kh549-movie_average.pickle').content
+        bytes = requests.get('http://www.cs.utexas.edu/users/downing/netflix-caches/kh549-movie_average.pickle').content
         movie_avg_cache = pickle.loads(bytes)
 
-    if os.path.isfile('/u/fares/public_html/netflix-tests/kh549-customer_average.pickle') :
+    if os.path.isfile('/u/downing/public_html/netflix-caches/kh549-customer_average.pickle') :
         # Read cache from file system
-        f = open('/u/fares/public_html/netflix-tests/kh549-customer_average.pickle','rb')
+        f = open('/u/downing/public_html/netflix-caches/kh549-customer_average.pickle','rb')
         cust_avg_cache = pickle.load(f)
     else:
         # Read cache from HTTP
-        bytes = requests.get('http://www.cs.utexas.edu/users/fares/netflix-tests/kh549-customer_average.pickle').content
+        bytes = requests.get('http://www.cs.utexas.edu/users/downing/netflix-caches/kh549-customer_average.pickle').content
         cust_avg_cache = pickle.loads(bytes)
-
-
 
     predictions_dict = {}
 
@@ -99,13 +97,13 @@ def netflix_eval(input_dict):
 def netflix_get_rmse(predictions_dict):
     rmse = 0.0
 
-    if os.path.isfile('/u/fares/public_html/netflix-tests/mdg7227-real_scores.pickle') :
+    if os.path.isfile('/u/downing/public_html/netflix-caches/mdg7227-real_scores.pickle') :
         # Read cache from file system
-        f = open('/u/fares/public_html/netflix-tests/mdg7227-real_scores.pickle','rb')
+        f = open('/u/downing/public_html/netflix-caches/mdg7227-real_scores.pickle','rb')
         cache = pickle.load(f)
     else:
         # Read cache from HTTP
-        bytes = requests.get('http://www.cs.utexas.edu/users/fares/netflix-tests/mdg7227-real_scores.pickle').content
+        bytes = requests.get('http://www.cs.utexas.edu/users/downing/netflix-caches/mdg7227-real_scores.pickle').content
         cache = pickle.loads(bytes)
 
     sum = 0
