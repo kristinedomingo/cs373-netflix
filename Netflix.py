@@ -87,24 +87,15 @@ def netflix_eval(input_dict):
 # netflix_get_rmse
 # ----------------
 
-def netflix_get_rmse(predictions_dict):
+def netflix_get_rmse(cache, predictions_dict):
     """
     Returns the root mean squared error (RMSE) of a dictionary of predictions,
     versus the actual ratings.
+    cache a dictionary of the same format as predictions_dict, w/ actual ratings
     predictions_dict a dict of predictions {movie_id: {customer_id: rating}}
     """
 
     rmse = 0.0
-
-    if os.path.isfile('/u/downing/public_html/netflix-caches/mdg7227-real_scores.pickle') :
-        # Read cache from file system
-        f = open('/u/downing/public_html/netflix-caches/mdg7227-real_scores.pickle','rb')
-        cache = pickle.load(f)
-    else:
-        # Read cache from HTTP
-        bytes = requests.get('http://www.cs.utexas.edu/users/downing/netflix-caches/mdg7227-real_scores.pickle').content
-        cache = pickle.loads(bytes)
-
     sum = 0
     num_ratings = 0
 
@@ -136,10 +127,7 @@ def netflix_print(w, predictions_dict):
         for customer_id, prediction in predictions_dict[movie_id].items():
             # Converts every customer_id in the list to a string, and joins each
             # to a newline character
-            w.write(str(prediction) + '\n')
-
-    # Print RMSE
-    print("RMSE: " + str(netflix_get_rmse(predictions_dict)))
+            w.write("%.2f\n" % prediction)
 
 # -------------
 # netflix_solve
@@ -162,3 +150,15 @@ def netflix_solve(r, w):
 
     # Output to RunNetflix.out
     netflix_print(w, predictions_dict)
+
+    if os.path.isfile('/u/downing/public_html/netflix-caches/mdg7227-real_scores.pickle') :
+        # Read cache from file system
+        f = open('/u/downing/public_html/netflix-caches/mdg7227-real_scores.pickle','rb')
+        cache = pickle.load(f)
+    else:
+        # Read cache from HTTP
+        bytes = requests.get('http://www.cs.utexas.edu/users/downing/netflix-caches/mdg7227-real_scores.pickle').content
+        cache = pickle.loads(bytes)
+
+    # Print RMSE
+    print("RMSE: %.2f" % netflix_get_rmse(cache, predictions_dict))
