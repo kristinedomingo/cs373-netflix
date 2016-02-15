@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Netflix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Netflix</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/v/filer4b/v38q001/kristine/cs373-netflix/Netflix.py">/v/filer4b/v38q001/kristine/cs373-netflix/Netflix.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;---------------------------<br>
+#&nbsp;projects/netlifx/Netflix.py<br>
+#&nbsp;Copyright&nbsp;(C)&nbsp;2015<br>
+#&nbsp;Glenn&nbsp;P.&nbsp;Downing<br>
+#&nbsp;Xavier&nbsp;Micah&nbsp;Ramirez<br>
+#&nbsp;Kristine&nbsp;Domingo<br>
+#&nbsp;---------------------------</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="pickle.html">pickle</a><br>
+</td><td width="25%" valign=top><a href="requests.html">requests</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-netflix_eval"><strong>netflix_eval</strong></a>(input_dict)</dt><dd><tt>Obtains&nbsp;caches&nbsp;used&nbsp;to&nbsp;create&nbsp;predictions&nbsp;of&nbsp;customer&nbsp;ratings,&nbsp;and&nbsp;returns<br>
+a&nbsp;dictionary&nbsp;of&nbsp;those&nbsp;predictions.<br>
+input_dict&nbsp;a&nbsp;dict&nbsp;of&nbsp;input&nbsp;{movie_id:&nbsp;[customer_ids]}</tt></dd></dl>
+ <dl><dt><a name="-netflix_get_rmse"><strong>netflix_get_rmse</strong></a>(predictions_dict)</dt><dd><tt>Returns&nbsp;the&nbsp;root&nbsp;mean&nbsp;squared&nbsp;error&nbsp;(RMSE)&nbsp;of&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;predictions,<br>
+versus&nbsp;the&nbsp;actual&nbsp;ratings.<br>
+predictions_dict&nbsp;a&nbsp;dict&nbsp;of&nbsp;predictions&nbsp;{movie_id:&nbsp;{customer_id:&nbsp;rating}}</tt></dd></dl>
+ <dl><dt><a name="-netflix_print"><strong>netflix_print</strong></a>(w, predictions_dict)</dt><dd><tt>Writes&nbsp;to&nbsp;writer&nbsp;w&nbsp;the&nbsp;contents&nbsp;of&nbsp;predictions_dict,&nbsp;movie&nbsp;ids&nbsp;followed&nbsp;by<br>
+predicted&nbsp;customer&nbsp;ratings.<br>
+w&nbsp;a&nbsp;writer<br>
+predictions_dict&nbsp;a&nbsp;dict&nbsp;of&nbsp;predictions&nbsp;{movie_id:&nbsp;{customer_id:&nbsp;rating}}</tt></dd></dl>
+ <dl><dt><a name="-netflix_read"><strong>netflix_read</strong></a>(stdin)</dt><dd><tt>Reads&nbsp;movie&nbsp;ids&nbsp;and&nbsp;associated&nbsp;customer&nbsp;ids&nbsp;from&nbsp;standard&nbsp;input,&nbsp;and&nbsp;returns<br>
+a&nbsp;dictionary&nbsp;of&nbsp;movie&nbsp;ids&nbsp;to&nbsp;lists&nbsp;of&nbsp;customer&nbsp;ids.<br>
+stdin&nbsp;the&nbsp;inputstream</tt></dd></dl>
+ <dl><dt><a name="-netflix_solve"><strong>netflix_solve</strong></a>(r, w)</dt><dd><tt>Reads&nbsp;from&nbsp;reader&nbsp;r&nbsp;and&nbsp;initiates&nbsp;computation&nbsp;to&nbsp;generate&nbsp;Netflix<br>
+rating&nbsp;predictions,&nbsp;and&nbsp;writes&nbsp;results&nbsp;to&nbsp;writer&nbsp;w.&nbsp;<br>
+r&nbsp;a&nbsp;reader<br>
+w&nbsp;a&nbsp;writer</tt></dd></dl>
+ <dl><dt><a name="-sqrt"><strong>sqrt</strong></a>(...)</dt><dd><tt><a href="#-sqrt">sqrt</a>(x)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;square&nbsp;root&nbsp;of&nbsp;x.</tt></dd></dl>
+</td></tr></table>
+</body></html>
