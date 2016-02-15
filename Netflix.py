@@ -22,7 +22,7 @@ from math import sqrt
 # netflix_read
 # ------------
 
-def netflix_read(stdin):
+def netflix_read(stdin, movie_order):
     """
     Reads movie ids and associated customer ids from standard input, and returns
     a dictionary of movie ids to lists of customer ids.
@@ -35,6 +35,7 @@ def netflix_read(stdin):
         # off the colon and newline chararcter at the end
         if line.endswith(":\n"):
             current_movie = int(line[:len(line) - 2])
+            movie_order.append(current_movie)
             movie_to_customer_db[current_movie] = []
 
         # Else, add the customer id to the associated movie
@@ -111,7 +112,7 @@ def netflix_get_rmse(cache, predictions_dict):
 # netflix_print
 # -------------
 
-def netflix_print(w, predictions_dict):
+def netflix_print(w, predictions_dict, movie_order):
     """
     Writes to writer w the contents of predictions_dict, movie ids followed by
     predicted customer ratings.
@@ -120,7 +121,7 @@ def netflix_print(w, predictions_dict):
     """
 
     # Write to standard output each movie id
-    for movie_id in predictions_dict:
+    for movie_id in movie_order:
         w.write(str(movie_id) + ":\n")
         # Steps into a movie's dict of customer_id -> predicted_ratings and
         # writes the prediction to stdout
@@ -143,13 +144,14 @@ def netflix_solve(r, w):
 
     # Read entire input file
     # {movie_id: [customer_id, customer_id, customer_id]}
-    input_dict = netflix_read(r)
+    movie_order = []
+    input_dict = netflix_read(r, movie_order)
 
     # {movie_id: [rating, rating, rating]}
     predictions_dict = netflix_eval(input_dict)
 
     # Output to RunNetflix.out
-    netflix_print(w, predictions_dict)
+    netflix_print(w, predictions_dict, movie_order)
 
     if os.path.isfile('/u/downing/public_html/netflix-caches/mdg7227-real_scores.pickle') :
         # Read cache from file system

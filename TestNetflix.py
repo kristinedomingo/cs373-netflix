@@ -64,7 +64,7 @@ class TestNetflix (TestCase) :
     # ------------
 
     def test_read_1(self):
-        x = netflix_read(self.input1)
+        x = netflix_read(self.input1, [])
         self.assertEqual(list(x.keys())[0], 1000)
 
     # ------------
@@ -72,7 +72,7 @@ class TestNetflix (TestCase) :
     # ------------
 
     def test_eval_1(self):
-        input_dict = netflix_read(self.input1)
+        input_dict = netflix_read(self.input1, [])
         predictions_dict = netflix_eval(input_dict)
 
         self.assertEqual(list(predictions_dict.keys())[0], 1000)
@@ -95,7 +95,7 @@ class TestNetflix (TestCase) :
         predictions_dict = {1: {1: 3, 2: 3}}
 
         w = StringIO()
-        netflix_print(w, predictions_dict)
+        netflix_print(w, predictions_dict, [1])
         self.assertEqual(w.getvalue(), "1:\n3.00\n3.00\n")
 
     # -------------
