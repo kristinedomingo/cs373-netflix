@@ -15,6 +15,7 @@
 import os
 import pickle
 import requests
+import math
 from math import sqrt
 
 FILESYS_CACHE = '/u/downing/public_html/netflix-caches/'
@@ -57,6 +58,7 @@ def netflix_eval(input_dict):
     input_dict a dict of input {movie_id: [customer_ids]}
     """
 
+    # Read a cache of movie rating averages
     if os.path.isfile(FILESYS_CACHE + 'kh549-movie_average.pickle') :
         # Read cache from file system
         with open(FILESYS_CACHE + 'kh549-movie_average.pickle','rb') as f:
@@ -66,6 +68,7 @@ def netflix_eval(input_dict):
         bytes = requests.get(HTTP_CACHE + 'kh549-movie_average.pickle').content
         movie_avg_cache = pickle.loads(bytes)
 
+    # Read a cache of the average ratings customers gave across all movies
     if os.path.isfile(FILESYS_CACHE + 'kh549-customer_average.pickle') :
         # Read cache from file system
         with open(FILESYS_CACHE + 'kh549-customer_average.pickle','rb') as f:
@@ -75,14 +78,49 @@ def netflix_eval(input_dict):
         bytes = requests.get(HTTP_CACHE + 'kh549-customer_average.pickle').content
         cust_avg_cache = pickle.loads(bytes)
 
+    # Read a cache of the years each movie was released
+    if os.path.isfile(FILESYS_CACHE + 'pas2465-movie_years.pickle') :
+        with open(FILESYS_CACHE + 'pas2465-movie_years.pickle', 'rb') as f:
+            movie_years = pickle.load(f)
+    else:
+        # Read cache from HTTP
+        bytes = requests.get(HTTP_CACHE + 'pas2465-movie_years.pickle').content
+        movie_years = pickle.loads(bytes)
+
+    # Read a cache of the avg ratings customers gave per decade
+    if os.path.isfile(FILESYS_CACHE + 'mdg7227-avg_customer_rating_per_movie_decade.pickle') :
+        with open(FILESYS_CACHE + 'mdg7227-avg_customer_rating_per_movie_decade.pickle', 'rb') as f:
+            rating_per_decade = pickle.load(f)
+    else:
+        # Read cache from HTTP
+        bytes = requests.get(HTTP_CACHE + 'mdg7227-avg_customer_rating_per_movie_decade.pickle').content
+        rating_per_decade = pickle.loads(bytes)
+
     predictions_dict = {}
 
     # For each k, v in input_dict, fill predictions_dict with rating predictions
     # Format: {movie_id: [rating, rating, rating]}
     for movie_id, customer_id_list in input_dict.items():
+
+        # Create an empty dictionary at movie_id
         predictions_dict[movie_id] = {}
+
+        # Iterate through all customers for this movie
         for customer_id in customer_id_list:
-            predictions_dict[movie_id][customer_id] = 3.7 + (movie_avg_cache[movie_id] - 3.7) + (cust_avg_cache[customer_id] - 3.7)
+            # "Baseline" number from article, the mean of all ratings
+            baseline = 3.7
+
+            # Get the "customer offset", based on the customer's average rating
+            # for this movie's decade, or his average rating over all movies
+            # (depending upon whether or not movie decade was available)
+            if movie_years[movie_id] is not None:
+                movie_decade = movie_years[movie_id] // 10 * 10
+                cust_offset = rating_per_decade[customer_id][movie_decade]
+            else:
+                cust_offset = cust_avg_cache[customer_id]
+
+            # Calculate the prediction: baseline + movie offset + cust offset
+            predictions_dict[movie_id][customer_id] = baseline + (movie_avg_cache[movie_id] - baseline) + (cust_offset - baseline)
 
     return predictions_dict
 
@@ -165,4 +203,4 @@ def netflix_solve(r, w):
         cache = pickle.loads(bytes)
 
     # Print RMSE
-    w.write("RMSE: %.2f" % netflix_get_rmse(cache, predictions_dict))
+    w.write("RMSE: " + str(netflix_get_rmse(cache, predictions_dict)))
