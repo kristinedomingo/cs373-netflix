@@ -59,8 +59,8 @@ def netflix_eval(input_dict):
 
     if os.path.isfile(FILESYS_CACHE + 'kh549-movie_average.pickle') :
         # Read cache from file system
-        f = open(FILESYS_CACHE + 'kh549-movie_average.pickle','rb')
-        movie_avg_cache = pickle.load(f)
+        with open(FILESYS_CACHE + 'kh549-movie_average.pickle','rb') as f:
+            movie_avg_cache = pickle.load(f)
     else:
         # Read cache from HTTP
         bytes = requests.get(HTTP_CACHE + 'kh549-movie_average.pickle').content
@@ -68,8 +68,8 @@ def netflix_eval(input_dict):
 
     if os.path.isfile(FILESYS_CACHE + 'kh549-customer_average.pickle') :
         # Read cache from file system
-        f = open(FILESYS_CACHE + 'kh549-customer_average.pickle','rb')
-        cust_avg_cache = pickle.load(f)
+        with open(FILESYS_CACHE + 'kh549-customer_average.pickle','rb') as f:
+            cust_avg_cache = pickle.load(f)
     else:
         # Read cache from HTTP
         bytes = requests.get(HTTP_CACHE + 'kh549-customer_average.pickle').content
@@ -157,8 +157,8 @@ def netflix_solve(r, w):
 
     if os.path.isfile(FILESYS_CACHE + 'mdg7227-real_scores.pickle') :
         # Read cache from file system
-        f = open(FILESYS_CACHE + 'mdg7227-real_scores.pickle','rb')
-        cache = pickle.load(f)
+        with open(FILESYS_CACHE + 'mdg7227-real_scores.pickle','rb') as f:
+            cache = pickle.load(f)
     else:
         # Read cache from HTTP
         bytes = requests.get(HTTP_CACHE + 'mdg7227-real_scores.pickle').content
