@@ -17,6 +17,8 @@ import pickle
 import requests
 from math import sqrt
 
+FILESYS_CACHE = '/u/downing/public_html/netflix-caches/'
+HTTP_CACHE = 'http://www.cs.utexas.edu/users/downing/netflix-caches/'
 
 # ------------
 # netflix_read
@@ -55,22 +57,22 @@ def netflix_eval(input_dict):
     input_dict a dict of input {movie_id: [customer_ids]}
     """
 
-    if os.path.isfile('/u/downing/public_html/netflix-caches/kh549-movie_average.pickle') :
+    if os.path.isfile(FILESYS_CACHE + 'kh549-movie_average.pickle') :
         # Read cache from file system
-        f = open('/u/downing/public_html/netflix-caches/kh549-movie_average.pickle','rb')
+        f = open(FILESYS_CACHE + 'kh549-movie_average.pickle','rb')
         movie_avg_cache = pickle.load(f)
     else:
         # Read cache from HTTP
-        bytes = requests.get('http://www.cs.utexas.edu/users/downing/netflix-caches/kh549-movie_average.pickle').content
+        bytes = requests.get(FILESYS_CACHE + 'kh549-movie_average.pickle').content
         movie_avg_cache = pickle.loads(bytes)
 
-    if os.path.isfile('/u/downing/public_html/netflix-caches/kh549-customer_average.pickle') :
+    if os.path.isfile(FILESYS_CACHE + 'kh549-customer_average.pickle') :
         # Read cache from file system
-        f = open('/u/downing/public_html/netflix-caches/kh549-customer_average.pickle','rb')
+        f = open(FILESYS_CACHE + 'kh549-customer_average.pickle','rb')
         cust_avg_cache = pickle.load(f)
     else:
         # Read cache from HTTP
-        bytes = requests.get('http://www.cs.utexas.edu/users/downing/netflix-caches/kh549-customer_average.pickle').content
+        bytes = requests.get(HTTP_CACHE + 'kh549-customer_average.pickle').content
         cust_avg_cache = pickle.loads(bytes)
 
     predictions_dict = {}
@@ -153,13 +155,13 @@ def netflix_solve(r, w):
     # Output to RunNetflix.out
     netflix_print(w, predictions_dict, movie_order)
 
-    if os.path.isfile('/u/downing/public_html/netflix-caches/mdg7227-real_scores.pickle') :
+    if os.path.isfile(FILESYS_CACHE + 'mdg7227-real_scores.pickle') :
         # Read cache from file system
-        f = open('/u/downing/public_html/netflix-caches/mdg7227-real_scores.pickle','rb')
+        f = open(FILESYS_CACHE + 'mdg7227-real_scores.pickle','rb')
         cache = pickle.load(f)
     else:
         # Read cache from HTTP
-        bytes = requests.get('http://www.cs.utexas.edu/users/downing/netflix-caches/mdg7227-real_scores.pickle').content
+        bytes = requests.get(HTTP_CACHE + 'mdg7227-real_scores.pickle').content
         cache = pickle.loads(bytes)
 
     # Print RMSE
