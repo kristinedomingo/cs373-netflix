@@ -165,4 +165,4 @@ def netflix_solve(r, w):
         cache = pickle.loads(bytes)
 
     # Print RMSE
-    print("RMSE: %.2f" % netflix_get_rmse(cache, predictions_dict))
+    w.write("RMSE: %.2f" % netflix_get_rmse(cache, predictions_dict))

@@ -59,6 +59,8 @@ class TestNetflix (TestCase) :
 
         self.input2 = StringIO("222:\n")
 
+        self.input_small = StringIO("9997:\n2179700\n1347835\n765578\n2328701\n")
+
     # ------------
     # netflix_read
     # ------------
@@ -101,6 +103,11 @@ class TestNetflix (TestCase) :
     # -------------
     # netflix_solve
     # -------------
+
+    def test_solve(self):
+        w = StringIO()
+        netflix_solve(self.input_small, w)
+        self.assertEqual(w.getvalue(), "9997:\n3.72\n3.79\n3.62\n3.91\nRMSE: 1.00")
 
 
 # ----
