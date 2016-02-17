@@ -61,6 +61,12 @@ class TestNetflix (TestCase) :
 
         self.input_small = StringIO("9997:\n2179700\n1347835\n765578\n2328701\n")
 
+        self.input_small2 = StringIO("9996:\n66828\n1149582\n336696\n2462908\n1589627\n1720226"
+                                        "\n1194354\n592532\n1351081\n80354\n16792\n481320\n899431"
+                                        "\n570792\n1619158\n2571420\n1817485\n1206224\n1553993\n")
+
+        self.input_small3 = StringIO("9998:\n1288730\n1107317\n2536567\n")
+
     # ------------
     # netflix_read
     # ------------
@@ -93,21 +99,53 @@ class TestNetflix (TestCase) :
     # netflix_print
     # -------------
 
-    def test_print(self):
+    def test_print_1(self):
         predictions_dict = {1: {1: 3, 2: 3}}
 
         w = StringIO()
         netflix_print(w, predictions_dict, [1])
         self.assertEqual(w.getvalue(), "1:\n3.00\n3.00\n")
 
+    def test_print_2(self):
+        predictions_dict = {10: {400: 34, 54: 56}}
+
+        w = StringIO()
+        netflix_print(w, predictions_dict, [10])
+        self.assertEqual(w.getvalue(), "10:\n34.00\n56.00\n")
+
+    def test_print_3(self):
+        predictions_dict = {101: {20: 4, 7: 3, 5: 3}}
+
+        w = StringIO()
+        netflix_print(w, predictions_dict, [101])
+        self.assertEqual(w.getvalue(), "101:\n4.00\n3.00\n3.00\n")
+
+    def test_print_4(self):
+        predictions_dict = {102: {43: 4, 4: 1, 6: 2}}
+
+        w = StringIO()
+        netflix_print(w, predictions_dict, [102])
+        self.assertEqual(w.getvalue(), "102:\n4.00\n1.00\n2.00\n")
+
     # -------------
     # netflix_solve
     # -------------
 
-    def test_solve(self):
+    def test_solve_1(self):
         w = StringIO()
         netflix_solve(self.input_small, w)
         self.assertEqual(w.getvalue(), "9997:\n3.72\n3.79\n3.62\n3.91\nRMSE: 1.00")
+
+    def test_solve_2(self):
+        w = StringIO()
+        netflix_solve(self.input_small2, w)
+        self.assertEqual(w.getvalue(), "9996:\n2.43\n2.85\n3.56\n3.57\n3.76\n3.02\n4.10\n3.22\n2.97"
+            "\n2.86\n3.05\n2.89\n3.72\n3.56\n2.56\n2.84\n3.02\n4.16\n3.35\nRMSE: 1.57")
+
+    def test_solve_3(self):
+        w = StringIO()
+        netflix_solve(self.input_small3, w)
+        self.assertEqual(w.getvalue(), "9998:\n2.72\n3.57\n2.95\nRMSE: 1.04")
 
 
 # ----
