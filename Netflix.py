@@ -63,7 +63,7 @@ def netflix_eval(input_dict):
         movie_avg_cache = pickle.load(f)
     else:
         # Read cache from HTTP
-        bytes = requests.get(FILESYS_CACHE + 'kh549-movie_average.pickle').content
+        bytes = requests.get(HTTP_CACHE + 'kh549-movie_average.pickle').content
         movie_avg_cache = pickle.loads(bytes)
 
     if os.path.isfile(FILESYS_CACHE + 'kh549-customer_average.pickle') :
