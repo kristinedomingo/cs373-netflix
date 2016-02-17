@@ -57,7 +57,8 @@ class TestNetflix (TestCase) :
                                 "2368043\n"
                                 "906984\n")
 
-        self.input2 = StringIO("222:\n")
+        self.input2 = StringIO("222:\n10000")
+        self.input3 = StringIO("1:\n")
 
         self.input_small = StringIO("9997:\n2179700\n1347835\n765578\n2328701\n")
 
@@ -74,6 +75,17 @@ class TestNetflix (TestCase) :
     def test_read_1(self):
         x = netflix_read(self.input1, [])
         self.assertEqual(list(x.keys())[0], 1000)
+        self.assertEqual(x[1000][0], 2326571)
+        self.assertEqual(x[1000][26], 906984)
+
+    def test_read_2(self):
+        x = netflix_read(self.input2, [])
+        self.assertEqual(list(x.keys())[0], 222)
+        self.assertEqual(x[222][0], 10000)
+
+    def test_read_3(self):
+        x = netflix_read(self.input3, [])
+        self.assertEqual(list(x.keys())[0], 1)
 
     # ------------
     # netflix_eval
@@ -82,18 +94,61 @@ class TestNetflix (TestCase) :
     def test_eval_1(self):
         input_dict = netflix_read(self.input1, [])
         predictions_dict = netflix_eval(input_dict)
-
         self.assertEqual(list(predictions_dict.keys())[0], 1000)
+
+        prediction = float(str(predictions_dict[1000][2326571])[:4])
+        self.assertEqual(prediction, 3.18)
+
+    def test_eval_2(self):
+        input_dict = netflix_read(self.input1, [])
+        predictions_dict = netflix_eval(input_dict)
+
+        prediction = float(str(predictions_dict[1000][2251189])[:4])
+        self.assertEqual(prediction, 3.18)
+
+        prediction = float(str(predictions_dict[1000][2368043])[:4])
+        self.assertEqual(prediction, 3.03)
+
+        prediction = float(str(predictions_dict[1000][929584])[:4])
+        self.assertEqual(prediction, 3.85)
+
+    def test_eval_3(self):
+        input_dict = netflix_read(self.input1, [])
+        predictions_dict = netflix_eval(input_dict)
+
+        prediction = float(str(predictions_dict[1000][977808])[:4])
+        self.assertEqual(prediction, 2.87)
+
+        prediction = float(str(predictions_dict[1000][1960212])[:4])
+        self.assertEqual(prediction, 3.2)
+
+        prediction = float(str(predictions_dict[1000][79755])[:4])
+        self.assertEqual(prediction, 3.71)
 
     # ----------------
     # netflix_get_rmse
     # ----------------
 
-    def test_get_rmse(self):
+    def test_get_rmse_1(self):
         predictions_dict = {1: {1: 3, 2: 3}}
         correct_ratings  = {1: {1: 3, 2: 3}}
-
         self.assertEqual(netflix_get_rmse(correct_ratings, predictions_dict), 0)
+
+    def test_get_rmse_2(self):
+        predictions_dict = {1: {1: 3, 2: 3}}
+        correct_ratings  = {1: {1: 5, 2: 4}}
+
+        rmse = netflix_get_rmse(correct_ratings, predictions_dict)
+        rmse = float(str(rmse)[:4])
+        self.assertEqual(rmse, 1.58)
+
+    def test_get_rmse_3(self):
+        predictions_dict = {1: {1: 1, 2: 1}}
+        correct_ratings  = {1: {1: 5, 2: 5}}
+
+        rmse = netflix_get_rmse(correct_ratings, predictions_dict)
+        rmse = float(str(rmse)[:4])
+        self.assertEqual(rmse, 4.0)
 
     # -------------
     # netflix_print
