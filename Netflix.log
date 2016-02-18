@@ -1,0 +1,352 @@
+commit b95211baf5c1cfbd1001e914d981ea8e0c68abc9
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Thu Feb 18 16:44:26 2016 -0600
+
+    close #17
+
+commit 2dbfd1bcc4f7ec6261554c0e47c8d8775fa01024
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Thu Feb 18 16:27:03 2016 -0600
+
+    Added necessary artifacts
+
+commit 24bba252e490a8fffd927e6bbb73a9b93ea407bb
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Thu Feb 18 16:14:13 2016 -0600
+
+    Updated output
+
+commit 3a256d6529f31f035b16fc9fc6e5fadc4cb68c86
+Merge: 3d0bc73 ffd4b81
+Author: Xavier Ramirez <alpha@wireless-10-147-27-16.public.utexas.edu>
+Date:   Thu Feb 18 16:12:06 2016 -0600
+
+    Merge branch 'dev' of https://github.com/kristinedomingo/cs373-netflix into dev
+
+commit 3d0bc731fcf4c41aa2122333098fbb0ccd604b24
+Author: Xavier Ramirez <alpha@wireless-10-147-27-16.public.utexas.edu>
+Date:   Thu Feb 18 16:11:53 2016 -0600
+
+    Adding a few subsets to our in file
+
+commit ffd4b8103e0e1916e96afda8c12b221420906736
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Thu Feb 18 16:11:49 2016 -0600
+
+    Completed documentation
+
+commit 2cdce81780b9458a782fcdcea42dbe84213f6dbd
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Thu Feb 18 16:02:08 2016 -0600
+
+    Matched output to input
+
+commit 5f22d8ffc90225d3523462315a5731980911803d
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Thu Feb 18 15:08:01 2016 -0600
+
+    Fixed indentation error
+
+commit e4ab3b56aa741b5151de5a48c95f4d8504eebdcd
+Merge: fee7a90 b6d956c
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Thu Feb 18 10:55:11 2016 -0600
+
+    Merge branch 'dev' of github.com:kristinedomingo/cs373-netflix into dev
+
+commit fee7a90334e834cdfcc936de1108e539e14f03e8
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Thu Feb 18 10:55:01 2016 -0600
+
+    Fixed issue w/ customer_id subsets failing on some acceptance tests
+
+commit b6d956cacde7652a98655e41370d658a2a39f4a3
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Thu Feb 18 09:22:58 2016 -0600
+
+    pep8ing
+
+commit ac91e96c8aef2f183b692d27dffd16d84016b950
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Tue Feb 16 21:50:40 2016 -0600
+
+    Achieved RMSE of < 0.95
+
+commit 69762d00a62300f0166f9a67e5d5a876bc917b50
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Tue Feb 16 20:00:24 2016 -0600
+
+    Got rid of unclosed file warnings
+
+commit b66c604227c6244455d2ff7aa19e7318c3fad547
+Merge: 0f87cf4 2020b2e
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Tue Feb 16 19:58:51 2016 -0600
+
+    Merge branch 'dev' of https://github.com/kristinedomingo/cs373-netflix into dev
+
+commit 0f87cf4a64ebf1a76a0d77a82b793d421e9b522d
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Tue Feb 16 19:58:48 2016 -0600
+
+    Added solve and print unit tests
+
+commit 2020b2e051aeea8cc8cbc10e42b83660465bf2bd
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Tue Feb 16 19:51:30 2016 -0600
+
+    Added get rmse tests
+
+commit e18d8dbc408b926ca8a1c03f9f32678f0576105f
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Tue Feb 16 19:44:13 2016 -0600
+
+    Added tests for read and eval
+
+commit 04a16cf1dddc20fca0937d635c451e066e519d71
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Tue Feb 16 19:31:49 2016 -0600
+
+    Fixed cache loading
+
+commit 0d89130bf71ce5d7f9a1a6680f0be752a34f27b0
+Merge: d181a50 70660c9
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Tue Feb 16 19:23:21 2016 -0600
+
+    Merge branch 'dev' of https://github.com/kristinedomingo/cs373-netflix into dev
+
+commit 70660c9e5b03778f4a2f00930d6e674123731995
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Tue Feb 16 19:23:12 2016 -0600
+
+    Added test for netflix_solve, fixed output
+
+commit d181a5021f0687f4a21c736825ae307bd7081fe2
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Tue Feb 16 19:15:43 2016 -0600
+
+    Small modification to netflix_solve
+
+commit f07c4b5c372f6288de0acbe9c3905a889b2307d7
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Tue Feb 16 19:14:40 2016 -0600
+
+    Updated output for now
+
+commit 04116fd35d9b5877bce15198c42b67dffeebd593
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Tue Feb 16 19:07:04 2016 -0600
+
+    Made cache locations global variables
+
+commit 8503665777085b1247d933ffbbf9506600f13a52
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Tue Feb 16 19:06:15 2016 -0600
+
+    Made unit tests that broke our solution
+
+commit f55265048a350c34479bd638487039fa161342bf
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Mon Feb 15 17:21:33 2016 -0600
+
+    maybe fixed it now
+
+commit e7f40e556bc23f20a1f3e44578bdd9125d9c1f0c
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Mon Feb 15 17:18:30 2016 -0600
+
+    Fixed travis omit
+
+commit 7f5629dd7f5f4dddcb9fcaf69e03d979d4e39b50
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Mon Feb 15 17:16:37 2016 -0600
+
+    Ignored site-packages in coverage output
+
+commit f36c994743b46aee1818d982112d30cef64a83bb
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Mon Feb 15 17:13:59 2016 -0600
+
+    Ordered output to mathch input
+
+commit 0ee76b52ef677db14b71263639d29b7feff8f723
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Mon Feb 15 16:35:29 2016 -0600
+
+    Truncated decimal output, added tests
+
+commit d187396a3bd308ca9b68c948933ce0fc4f7e4209
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Mon Feb 15 15:18:46 2016 -0600
+
+    Added pydoc html file, close #8
+
+commit 58fe463aaaa4e26b3c0730a32bac717cbae256fb
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Mon Feb 15 15:18:14 2016 -0600
+
+    Added pydoc comments to all methods
+
+commit ce24b7207b1fafce017c8a38de71098bfba249a3
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Mon Feb 15 15:06:25 2016 -0600
+
+    Edited makefile to exclude coverage of requests package
+
+commit 9b3b749a1ef576e6d76e55783fef284be5684ada
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Mon Feb 15 14:37:42 2016 -0600
+
+    Changed from fares to downing
+
+commit 673fce2fca85659fa05cb36bbbdbec7475792a94
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Fri Feb 12 16:23:56 2016 -0600
+
+    sigh
+
+commit a2f67d6f83169f3b77b0cd8f392820ec0cbb3d18
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Fri Feb 12 16:21:26 2016 -0600
+
+    Added output to RunNetflix.out
+
+commit f45ff7cd483b9baa305444613237fb5df6279f08
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Fri Feb 12 16:14:40 2016 -0600
+
+    Mispelling of pickle
+
+commit 822f9a16ad1e5338c0843970972150e5eabeff08
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Fri Feb 12 16:11:10 2016 -0600
+
+    Small bug cleanup
+
+commit d66cfc590ba27fad92d4263b4192d1f1d2a54f34
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Fri Feb 12 16:09:37 2016 -0600
+
+    Added HTTP get for real scores pickle cache
+
+commit 9ba28ceddd378042f3a535924e98b39cfcbab30e
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Fri Feb 12 16:07:17 2016 -0600
+
+    Updating dependecing for requests module on .travis config
+
+commit f67843a2d00cdd1145c7a966ed8a7072d353bf72
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Fri Feb 12 16:04:33 2016 -0600
+
+    Imported request... Travis attemptv2
+
+commit 73c5bc60a333115926056ba3d14c1e3098d03ec6
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Fri Feb 12 16:02:27 2016 -0600
+
+    Added HTTP Get request for caches to make travis build!
+
+commit 9680cf45c52b082c9b5c444aeae402aab7310cb0
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Fri Feb 12 15:57:39 2016 -0600
+
+    Implemented predictions with movie_avg cache and customer avg cache. RMSE less than 1. Fixes #2, Fixes #5, Fixes #7, Fixes #11, Fixes #12, Fixes #13
+
+commit 169a522eae7149ec8ef703a308af7e3bcfbb1ddf
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Fri Feb 12 15:46:28 2016 -0600
+
+    Configured output for predictions to stdout
+
+commit 9b01ab17e548907aef2028d667b939e56cf4a32f
+Merge: 5ebb3a6 df6f130
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Fri Feb 12 15:25:58 2016 -0600
+
+    Fixed merge conflict
+
+commit 5ebb3a64828709f191807c49bf35c25df652bb01
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Fri Feb 12 15:16:46 2016 -0600
+
+    Implemented RMSE, changed structure of predictions dict
+
+commit df6f130d5c94426725c6a8e1b1227055d72f6aa0
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Wed Feb 10 17:53:23 2016 -0600
+
+    Implemented netflix_print
+
+commit ce07fdeeea09f8786d32534d1e3a0500e6dc58ab
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Wed Feb 10 17:36:36 2016 -0600
+
+    Implemented netflix_solve
+
+commit 33b4a153366420e80983d9bd231ab10c4df0863d
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Wed Feb 10 17:11:23 2016 -0600
+
+    Implemented netflix_read
+
+commit 2eac42dca0352572bcc85ace53a3ace4b406e74b
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Wed Feb 10 17:11:05 2016 -0600
+
+    Added dummy input data
+
+commit c5be188c82f6608c1ebac072a91606ba60831a45
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Tue Feb 9 13:36:47 2016 -0600
+
+    Added notes
+
+commit 931cb9bd3075c99736f70aee941fc1e9566a9c9c
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Tue Feb 9 13:29:29 2016 -0600
+
+    Commented out public test repo files in makefile, close #2
+
+commit 5567ee343ee63830bd55b4996c9029ef3928a629
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Mon Feb 8 14:55:47 2016 -0600
+
+    Added dummy test so it compiles
+
+commit 28088f602f4f43db1736e29967a450ac43c0c46e
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Mon Feb 8 14:54:01 2016 -0600
+
+    Added base methods for Netflix.py
+
+commit ceed0555c486b68112377de85e75f7b0ca27b78c
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Mon Feb 8 14:48:11 2016 -0600
+
+    Implemented run harness for netflix in RunNetflix
+
+commit 333fac7277d9dbe0cd06e788315598a359087b52
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Mon Feb 8 14:44:49 2016 -0600
+
+    Adding code to testnetflix fixes #1
+
+commit d6fde8f1d887d9bbeee635a08e547b09b82b6738
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Mon Feb 8 14:38:35 2016 -0600
+
+    Fixed permissions issue
+
+commit 74911ada7e3e353c4fe3a4f514227eaa9eeb8cfb
+Author: Kristine Domingo <kristine@cs.utexas.edu>
+Date:   Mon Feb 8 14:36:14 2016 -0600
+
+    Added makefiles and other build files
+
+commit 1663d7783fae2a96ee676a151a9cfa2ea316e830
+Author: micahramirez <xaviermicahramirez@utexas.edu>
+Date:   Mon Feb 8 14:30:48 2016 -0600
+
+    Empty files
