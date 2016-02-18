@@ -1,9 +1,9 @@
 FILES :=                                 \
     .travis.yml                          \
-    #netflix-tests/kd9844-RunNetflix.in   \
-    #netflix-tests/kd9844-RunNetflix.out  \
-    #netflix-tests/kd9844-TestNetflix.out \
-    #netflix-tests/kd9844-TestNetflix.py  \
+    netflix-tests/kd9844-RunNetflix.in   \
+    netflix-tests/kd9844-RunNetflix.out  \
+    netflix-tests/kd9844-TestNetflix.out \
+    netflix-tests/kd9844-TestNetflix.py  \
     Netflix.html                         \
     Netflix.log                          \
     Netflix.py                           \
