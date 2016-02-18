@@ -142,9 +142,11 @@ def netflix_get_rmse(cache, predictions_dict):
 
     # Calculate RMSE
     for movie_id in predictions_dict:
-        for customer_id in cache[movie_id]:
+        for customer_id in predictions_dict[movie_id]:
             num_ratings += 1
-            sum += (cache[movie_id][customer_id] - predictions_dict[movie_id][customer_id]) ** 2
+            cache_rating = cache[movie_id][customer_id]
+            prediction = predictions_dict[movie_id][customer_id]
+            sum += (cache_rating - prediction) ** 2
 
     return sqrt(sum / num_ratings)
 
