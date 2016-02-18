@@ -23,10 +23,11 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
 </td><td width="25%" valign=top><a href="pickle.html">pickle</a><br>
 </td><td width="25%" valign=top><a href="requests.html">requests</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -35,23 +36,37 @@
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-netflix_eval"><strong>netflix_eval</strong></a>(input_dict)</dt><dd><tt>Obtains&nbsp;caches&nbsp;used&nbsp;to&nbsp;create&nbsp;predictions&nbsp;of&nbsp;customer&nbsp;ratings,&nbsp;and&nbsp;returns<br>
 a&nbsp;dictionary&nbsp;of&nbsp;those&nbsp;predictions.<br>
-input_dict&nbsp;a&nbsp;dict&nbsp;of&nbsp;input&nbsp;{movie_id:&nbsp;[customer_ids]}</tt></dd></dl>
- <dl><dt><a name="-netflix_get_rmse"><strong>netflix_get_rmse</strong></a>(predictions_dict)</dt><dd><tt>Returns&nbsp;the&nbsp;root&nbsp;mean&nbsp;squared&nbsp;error&nbsp;(RMSE)&nbsp;of&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;predictions,<br>
+input_dict&nbsp;a&nbsp;dict&nbsp;of&nbsp;input&nbsp;{movie_id:&nbsp;[customer_ids]}<br>
+return&nbsp;a&nbsp;dictionary&nbsp;{movie_id:&nbsp;{customer_id:&nbsp;rating}}</tt></dd></dl>
+ <dl><dt><a name="-netflix_get_rmse"><strong>netflix_get_rmse</strong></a>(cache, predictions_dict)</dt><dd><tt>Returns&nbsp;the&nbsp;root&nbsp;mean&nbsp;squared&nbsp;error&nbsp;(RMSE)&nbsp;of&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;predictions,<br>
 versus&nbsp;the&nbsp;actual&nbsp;ratings.<br>
-predictions_dict&nbsp;a&nbsp;dict&nbsp;of&nbsp;predictions&nbsp;{movie_id:&nbsp;{customer_id:&nbsp;rating}}</tt></dd></dl>
- <dl><dt><a name="-netflix_print"><strong>netflix_print</strong></a>(w, predictions_dict)</dt><dd><tt>Writes&nbsp;to&nbsp;writer&nbsp;w&nbsp;the&nbsp;contents&nbsp;of&nbsp;predictions_dict,&nbsp;movie&nbsp;ids&nbsp;followed&nbsp;by<br>
+cache&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;the&nbsp;same&nbsp;format&nbsp;as&nbsp;predictions_dict,&nbsp;w/&nbsp;actual&nbsp;ratings<br>
+predictions_dict&nbsp;a&nbsp;dict&nbsp;of&nbsp;predictions&nbsp;{movie_id:&nbsp;{customer_id:&nbsp;rating}}<br>
+return&nbsp;a&nbsp;float&nbsp;(root&nbsp;mean&nbsp;squared&nbsp;error)</tt></dd></dl>
+ <dl><dt><a name="-netflix_print"><strong>netflix_print</strong></a>(w, predictions_dict, movie_order)</dt><dd><tt>Writes&nbsp;to&nbsp;writer&nbsp;w&nbsp;the&nbsp;contents&nbsp;of&nbsp;predictions_dict,&nbsp;movie&nbsp;ids&nbsp;followed&nbsp;by<br>
 predicted&nbsp;customer&nbsp;ratings.<br>
 w&nbsp;a&nbsp;writer<br>
-predictions_dict&nbsp;a&nbsp;dict&nbsp;of&nbsp;predictions&nbsp;{movie_id:&nbsp;{customer_id:&nbsp;rating}}</tt></dd></dl>
- <dl><dt><a name="-netflix_read"><strong>netflix_read</strong></a>(stdin)</dt><dd><tt>Reads&nbsp;movie&nbsp;ids&nbsp;and&nbsp;associated&nbsp;customer&nbsp;ids&nbsp;from&nbsp;standard&nbsp;input,&nbsp;and&nbsp;returns<br>
+predictions_dict&nbsp;a&nbsp;dict&nbsp;of&nbsp;predictions&nbsp;{movie_id:&nbsp;{customer_id:&nbsp;rating}}<br>
+movie_order&nbsp;a&nbsp;list&nbsp;of&nbsp;integers&nbsp;that&nbsp;are&nbsp;movie_ids</tt></dd></dl>
+ <dl><dt><a name="-netflix_read"><strong>netflix_read</strong></a>(stdin, movie_order)</dt><dd><tt>Reads&nbsp;movie&nbsp;ids&nbsp;and&nbsp;associated&nbsp;customer&nbsp;ids&nbsp;from&nbsp;standard&nbsp;input,&nbsp;and&nbsp;returns<br>
 a&nbsp;dictionary&nbsp;of&nbsp;movie&nbsp;ids&nbsp;to&nbsp;lists&nbsp;of&nbsp;customer&nbsp;ids.<br>
-stdin&nbsp;the&nbsp;inputstream</tt></dd></dl>
+stdin&nbsp;the&nbsp;inputstream<br>
+movie_order&nbsp;a&nbsp;list&nbsp;of&nbsp;integers&nbsp;that&nbsp;are&nbsp;movie_ids<br>
+return&nbsp;a&nbsp;dictionary&nbsp;{movie_id:&nbsp;[customer_ids]}</tt></dd></dl>
  <dl><dt><a name="-netflix_solve"><strong>netflix_solve</strong></a>(r, w)</dt><dd><tt>Reads&nbsp;from&nbsp;reader&nbsp;r&nbsp;and&nbsp;initiates&nbsp;computation&nbsp;to&nbsp;generate&nbsp;Netflix<br>
-rating&nbsp;predictions,&nbsp;and&nbsp;writes&nbsp;results&nbsp;to&nbsp;writer&nbsp;w.&nbsp;<br>
+rating&nbsp;predictions,&nbsp;and&nbsp;writes&nbsp;results&nbsp;to&nbsp;writer&nbsp;w.<br>
 r&nbsp;a&nbsp;reader<br>
 w&nbsp;a&nbsp;writer</tt></dd></dl>
  <dl><dt><a name="-sqrt"><strong>sqrt</strong></a>(...)</dt><dd><tt><a href="#-sqrt">sqrt</a>(x)<br>
 &nbsp;<br>
 Return&nbsp;the&nbsp;square&nbsp;root&nbsp;of&nbsp;x.</tt></dd></dl>
-</td></tr></table>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>FILESYS_CACHE</strong> = '/u/downing/public_html/netflix-caches/'<br>
+<strong>HTTP_CACHE</strong> = 'http://www.cs.utexas.edu/users/downing/netflix-caches/'</td></tr></table>
 </body></html>

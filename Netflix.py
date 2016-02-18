@@ -3,7 +3,6 @@
 # ---------------------------
 # projects/netlifx/Netflix.py
 # Copyright (C) 2015
-# Glenn P. Downing
 # Xavier Micah Ramirez
 # Kristine Domingo
 # ---------------------------

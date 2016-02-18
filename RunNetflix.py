@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
 # ------------------------------
-# projects/collatz/RunCollatz.py
+# projects/netflix/RunNetflix.py
 # Copyright (C) 2015
-# Glenn P. Downing
 # Xavier Micah Ramirez
 # Kristine Domingo
 # ------------------------------

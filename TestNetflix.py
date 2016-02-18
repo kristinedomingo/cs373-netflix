@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
 # -------------------------------
-# projects/collatz/TestCollatz.py
+# projects/netflix/TestNetflix.py
 # Copyright (C) 2015
-# Glenn P. Downing
 # Xavier Micah Ramirez
 # Kristine Domingo
 # -------------------------------
@@ -211,3 +210,20 @@ class TestNetflix (TestCase) :
 
 if __name__ == "__main__" :
     main()
+
+""" #pragma: no cover
+coverage3 run    --branch TestNetflix.py >  TestNetflix.tmp 2>&1
+coverage3 report -m --omit=/lusr/lib/python3.4/dist-packages/*,/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/* >> TestNetflix.tmp
+cat TestNetflix.tmp
+................
+----------------------------------------------------------------------
+Ran 16 tests in 7.952s
+
+OK
+Name             Stmts   Miss Branch BrPart  Cover   Missing
+------------------------------------------------------------
+Netflix.py          75     11     28      6    83%   71-72, 81-82, 90-91, 99-100, 123, 209-210, 65->71, 75->81, 85->90, 94->99, 119->123, 203->209
+TestNetflix.py      97      0      2      1    99%   212->-15
+------------------------------------------------------------
+TOTAL              172     11     30      7    91%   
+"""
