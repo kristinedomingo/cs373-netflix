@@ -120,9 +120,7 @@ def netflix_eval(input_dict):
                 cust_offset = cust_avg_cache[customer_id]
 
             # Calculate the prediction: baseline + movie offset + cust offset
-            predictions_dict[movie_id][customer_id] = baseline
-                                        + (movie_avg_cache[movie_id] - baseline)
-                                        + (cust_offset - baseline)
+            predictions_dict[movie_id][customer_id] = baseline + (movie_avg_cache[movie_id] - baseline) + (cust_offset - baseline)
 
     return predictions_dict
 
