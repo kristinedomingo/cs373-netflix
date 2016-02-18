@@ -59,9 +59,9 @@ def netflix_eval(input_dict):
     """
 
     # Read a cache of movie rating averages
-    if os.path.isfile(FILESYS_CACHE + 'kh549-movie_average.pickle') :
+    if os.path.isfile(FILESYS_CACHE + 'kh549-movie_average.pickle'):
         # Read cache from file system
-        with open(FILESYS_CACHE + 'kh549-movie_average.pickle','rb') as f:
+        with open(FILESYS_CACHE + 'kh549-movie_average.pickle', 'rb') as f:
             movie_avg_cache = pickle.load(f)
     else:
         # Read cache from HTTP
@@ -69,9 +69,9 @@ def netflix_eval(input_dict):
         movie_avg_cache = pickle.loads(bytes)
 
     # Read a cache of the average ratings customers gave across all movies
-    if os.path.isfile(FILESYS_CACHE + 'kh549-customer_average.pickle') :
+    if os.path.isfile(FILESYS_CACHE + 'kh549-customer_average.pickle'):
         # Read cache from file system
-        with open(FILESYS_CACHE + 'kh549-customer_average.pickle','rb') as f:
+        with open(FILESYS_CACHE + 'kh549-customer_average.pickle', 'rb') as f:
             cust_avg_cache = pickle.load(f)
     else:
         # Read cache from HTTP
@@ -79,7 +79,7 @@ def netflix_eval(input_dict):
         cust_avg_cache = pickle.loads(bytes)
 
     # Read a cache of the years each movie was released
-    if os.path.isfile(FILESYS_CACHE + 'pas2465-movie_years.pickle') :
+    if os.path.isfile(FILESYS_CACHE + 'pas2465-movie_years.pickle'):
         with open(FILESYS_CACHE + 'pas2465-movie_years.pickle', 'rb') as f:
             movie_years = pickle.load(f)
     else:
@@ -88,7 +88,7 @@ def netflix_eval(input_dict):
         movie_years = pickle.loads(bytes)
 
     # Read a cache of the avg ratings customers gave per decade
-    if os.path.isfile(FILESYS_CACHE + 'mdg7227-avg_customer_rating_per_movie_decade.pickle') :
+    if os.path.isfile(FILESYS_CACHE + 'mdg7227-avg_customer_rating_per_movie_decade.pickle'):
         with open(FILESYS_CACHE + 'mdg7227-avg_customer_rating_per_movie_decade.pickle', 'rb') as f:
             rating_per_decade = pickle.load(f)
     else:
@@ -120,7 +120,9 @@ def netflix_eval(input_dict):
                 cust_offset = cust_avg_cache[customer_id]
 
             # Calculate the prediction: baseline + movie offset + cust offset
-            predictions_dict[movie_id][customer_id] = baseline + (movie_avg_cache[movie_id] - baseline) + (cust_offset - baseline)
+            predictions_dict[movie_id][customer_id] = baseline
+                                        + (movie_avg_cache[movie_id] - baseline)
+                                        + (cust_offset - baseline)
 
     return predictions_dict
 
@@ -179,7 +181,7 @@ def netflix_print(w, predictions_dict, movie_order):
 def netflix_solve(r, w):
     """
     Reads from reader r and initiates computation to generate Netflix
-    rating predictions, and writes results to writer w. 
+    rating predictions, and writes results to writer w.
     r a reader
     w a writer
     """
@@ -195,9 +197,9 @@ def netflix_solve(r, w):
     # Output to RunNetflix.out
     netflix_print(w, predictions_dict, movie_order)
 
-    if os.path.isfile(FILESYS_CACHE + 'mdg7227-real_scores.pickle') :
+    if os.path.isfile(FILESYS_CACHE + 'mdg7227-real_scores.pickle'):
         # Read cache from file system
-        with open(FILESYS_CACHE + 'mdg7227-real_scores.pickle','rb') as f:
+        with open(FILESYS_CACHE + 'mdg7227-real_scores.pickle', 'rb') as f:
             cache = pickle.load(f)
     else:
         # Read cache from HTTP
