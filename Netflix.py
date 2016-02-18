@@ -205,4 +205,4 @@ def netflix_solve(r, w):
         cache = pickle.loads(bytes)
 
     # Print RMSE
-    w.write("RMSE: " + str(netflix_get_rmse(cache, predictions_dict)))
+    w.write("RMSE: " + str(netflix_get_rmse(cache, predictions_dict))[:4])
