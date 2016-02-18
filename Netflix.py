@@ -30,6 +30,8 @@ def netflix_read(stdin, movie_order):
     Reads movie ids and associated customer ids from standard input, and returns
     a dictionary of movie ids to lists of customer ids.
     stdin the inputstream
+    movie_order a list of integers that are movie_ids
+    return a dictionary {movie_id: [customer_ids]}
     """
     movie_to_customer_db = {}
 
@@ -56,6 +58,7 @@ def netflix_eval(input_dict):
     Obtains caches used to create predictions of customer ratings, and returns
     a dictionary of those predictions.
     input_dict a dict of input {movie_id: [customer_ids]}
+    return a dictionary {movie_id: {customer_id: rating}}
     """
 
     # Read a cache of movie rating averages
@@ -134,6 +137,7 @@ def netflix_get_rmse(cache, predictions_dict):
     versus the actual ratings.
     cache a dictionary of the same format as predictions_dict, w/ actual ratings
     predictions_dict a dict of predictions {movie_id: {customer_id: rating}}
+    return a float (root mean squared error)
     """
 
     rmse = 0.0
@@ -160,6 +164,7 @@ def netflix_print(w, predictions_dict, movie_order):
     predicted customer ratings.
     w a writer
     predictions_dict a dict of predictions {movie_id: {customer_id: rating}}
+    movie_order a list of integers that are movie_ids
     """
 
     # Write to standard output each movie id
